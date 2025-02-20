@@ -16,6 +16,15 @@ class CurrencyConverterMaterialpage extends StatelessWidget {
 
     return Scaffold(
       backgroundColor: Colors.blueGrey,
+      appBar: AppBar(
+        backgroundColor: Colors.blueGrey,
+        elevation: 0.0,
+        title: const Text(
+          'Currency Converter',
+          style: TextStyle(color: Colors.black),
+        ),
+        centerTitle: true,
+      ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -43,20 +52,32 @@ class CurrencyConverterMaterialpage extends StatelessWidget {
                   focusedBorder: border,
                   enabledBorder: border,
                 ),
+                keyboardType: TextInputType.numberWithOptions(decimal: true),
               ),
             ),
             //buttons
             //raised
             //appears like a text
-            TextButton(
-              onPressed: () {
-                debugPrint('Button clicked');
-              },
-              style: ButtonStyle(
-                backgroundColor: WidgetStatePropertyAll(Colors.black),
-                foregroundColor: WidgetStatePropertyAll(Colors.white),
+            Padding(
+              padding: const EdgeInsets.all(10.0),
+              child: TextButton(
+                onPressed: () {
+                  debugPrint('Button clicked');
+                },
+                style: ButtonStyle(
+                  backgroundColor: WidgetStatePropertyAll(Colors.black),
+                  foregroundColor: WidgetStatePropertyAll(Colors.white),
+                  minimumSize: WidgetStatePropertyAll(
+                    Size(double.infinity, 50),
+                  ),
+                  shape: WidgetStatePropertyAll(
+                    RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                  ),
+                ),
+                child: const Text('Convert'),
               ),
-              child: const Text('Convert'),
             ),
           ],
         ),
